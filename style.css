@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #ebede9;
+    height: 100vh;
+    width: 100vw;
+}
+
+.flex-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+h1 {
+    background-color: #8896BF;
+    max-width: 80%;
+    font-size: 4rem;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 4rem;
+    z-index: 2;
+}
+
+.buttons {
+    z-index: 2;
+}
+
+.button {
+    background-color: #8896BF;
+    margin: 2rem;
+    font-size: 2rem;
+    padding: 2rem;
+    border-radius: 3rem;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+#blob1 {
+    display: block;
+    overflow: hidden;
+    height: 30rem;
+    position: fixed;
+    bottom: -10rem;
+    left: -10rem;
+}
+#blob2 {
+    display: block;
+    overflow: hidden;
+    position: fixed;
+    height: 20rem;
+    top: -5rem;
+    right: -5rem;
+    rotate: 90deg;
+    z-index: 1;
+
+}
+#blob3 {
+    display: block;
+    overflow: hidden;
+    position: fixed;
+    height: 30rem;
+    right: -15rem;
+    top: 20rem;
+    rotate: 180deg;
+    z-index: 1;
+
+}
+#blob4 {
+    display: block;
+    overflow: hidden;
+    position: fixed;
+    height: 30rem;
+    left: -15rem;
+    top: 10rem;
+}
