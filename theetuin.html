@@ -4,24 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
+    <title>Theetuin</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="javascript/theetuin.js" defer></script>
 </head>
 <body>
-    <a-scene>
+    <a-scene>  
         <a-assets>
             <a-asset-item id="tree1-gltf" src="theetuin_modellen/Tree.glb"></a-asset-item>
-
             <a-asset-item id="tree2-gltf" src="theetuin_modellen/Tree2.glb"></a-asset-item>
-
             <a-asset-item id="table-gltf" src="theetuin_modellen/End Table.glb"></a-asset-item>
-
             <a-asset-item id="teapot-gltf" src="theetuin_modellen/Teapot.glb"></a-asset-item>
-
             <a-asset-item id="teacup-gltf" src="theetuin_modellen/Cup of tea.glb"></a-asset-item>
-
             <a-asset-item id="chair-gltf" src="theetuin_modellen/Chair.glb"></a-asset-item>
+
+            <img scr="theetuin_modellen/brick.jpg" alt="" id="muur">
         </a-assets>
 
         <a-camera id="js--camera">
@@ -31,10 +28,10 @@
         <a-entity light="type: ambient; color: lightgray" position="0 20 0"></a-entity>
 
         <a-plane color="#999" position="0 0 0" rotation="-90 0 0" scale="20 20 20"></a-plane> <!--vloer-->
-        <a-plane color="#bbb" position="10 0 0" rotation="0 -90 0" scale="20 20 20"></a-plane> <!--rechts-->
-        <a-plane color="#bbb" position="-10 0 0" rotation="0 90 0" scale="20 20 20"></a-plane> <!--links-->
-        <a-plane color="#bbb" position="0 0 -10" rotation="0 0 0" scale="20 20 20"></a-plane> <!--voor-->
-        <a-plane color="#bbb" position="0 0 10" rotation="180 0 0" scale="20 20 20"></a-plane> <!--achter-->
+        <a-plane src="#muur" color="brown" position="10 0 0" rotation="0 -90 0" scale="20 20 20"></a-plane> <!--rechts-->
+        <a-plane src="#muur" color="brown" position="-10 0 0" rotation="0 90 0" scale="20 20 20"></a-plane> <!--links-->
+        <a-plane src="#muur" color="brown" position="0 0 -10" rotation="0 0 0" scale="20 20 20"></a-plane> <!--voor-->
+        <a-plane src="#muur" color="brown" position="0 0 10" rotation="180 0 0" scale="20 20 20"></a-plane> <!--achter-->
 
         <a-entity gltf-model="#tree1-gltf" position="-5 0 -1" scale="1 1 1"></a-entity>
         <a-entity gltf-model="#tree1-gltf" position="-2 0 6" rotation="0 60 0" scale="0.7 0.7 0.7"></a-entity>
