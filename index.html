@@ -7,21 +7,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
+    <script src="javascript/startmenu.js"></script>
     <title>Die Port van Cleve</title>
 </head>
 
 <body>
-    <section class="flex-wrapper">
-        <h1 class="titel">Welkom bij de VR ervaring van Die port van Cleve</h1>
-        <section class="buttons">
-            <p class="button"><a href="theetuin.html">naar de theetuin</a></p>
-            <p class="button"><a href="eethuis.html">naar het eethuis</a></p>
+    <img src="img/DPVCJubileumLogo.webp" alt="150 jaar Die Port van Cleve" class="logo">
+    <section class="home__wrapper" id="js--home">
+        <h1 class="home__wrapper__titel">Welkom bij de VR ervaring</h1>
+        <img class="home__wrapper__img" src="img/dpvcGebouw.webp" alt="Die Port Van Cleve">
+        <section class="home__wrapper__buttons">
+            <p class="home__wrapper__buttons__button" id="js--theetuinKnop">naar de theetuin</p>
+            <p class="home__wrapper__buttons__button" id="js--bodegaKnop">naar de bodega</p>
         </section>
     </section>
-    <img src="svg/blob1.svg" alt="blob1" id="blob1">
-    <img src="svg/blob2.svg" alt="blob2" id="blob2">
-    <img src="svg/blob3.svg" alt="blob3" id="blob3">
-    <img src="svg/blob4.svg" alt="blob4" id="blob4">
+    <section class="theetuin__wrapper" id="js--theetuin">
+        <h1 class="theetuin__wrapper__titel">Bekijk de Theetuin</h1>
+        <p class="theetuin__wrapper__uitleg">Let op, deze ervaring gebruikt geluid en is dus ook het best te ervaren met een koptelefoon</p>
+        <p class="theetuin__wrapper__uitleg">U kunt zo uw telefoon rond u heen bewegen om rond te kijken in de kamer</p>
+        <a href="theetuin.html" class="theetuin__wrapper__button"><p>Naar de Theetuin</p></a>
+        <p class="terugknop" id="js--terugKnop">terug naar het menu</p>
+    </section>
+    <section class="bodega__wrapper" id="js--bodega">
+        <h1 class="bodega__wrapper__titel">Bekijk de Bodega</h1>
+        <p class="bodega__wrapper__uitleg">Let op, deze ervaring gebruikt geluid en is dus ook het best te ervaren met een koptelefoon</p>
+        <p class="bodega__wrapper__uitleg">U kunt zo uw telefoon rond u heen bewegen om rond te kijken in de kamer</p>
+        <a href="bodega.html" class="bodega__wrapper__button"><p>Naar de bodega</p></a>
+        <p class="terugknop" id="js--terugKnop">terug naar het menu</p>
+    </section>
 </body>
-
 </html>
