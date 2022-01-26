@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>proto 1</title>
+    <script src="main.js" defer></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+</head>
+<body onload="main()">
+    <a-scene>
+        <a-assets>
+            <a-asset-item id="table" src="/models/table.glb"></a-asset-item>
+            <a-asset-item id="lightbulb" src="/models/lightbulb.glb"></a-asset-item>
+            <a-asset-item id="lightbulb_dark" src="/models/lightbulb_dark.glb"></a-asset-item>
+            <a-asset-item id="lightbulb_light" src="/models/lightbulb_light.glb"></a-asset-item>
+
+            <img src="/models/ondergrond.png" alt="" id="grond">
+            <img src="/models/brick.jpg" alt="" id="brick">
+        </a-assets>
+
+        <a-camera position="0 0 0" id="js--camera">
+            <a-entity
+                cursor="fuse: true; fuseTimeout: 500"
+                position="0 0 -1"
+                geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.035"
+                material="color: gold"
+                raycaster="far: 20; interval: 1000;"
+                id="js--cursor"
+                shader="flat"
+            ></a-entity>
+        </a-camera>
+
+        <!-- default world -->
+        <a-sky color="#151515"></a-sky>
+        <a-entity light="type: ambient; color: #111111"></a-entity>
+        <a-plane height="50" width="50" rotation="-90 0 0" position="0 -3.5 -20" src="#grond" shadow="receive: true"
+        repeat="10 10"
+        ></a-plane>
+
+        <!-- walls -->
+        <a-plane src="#brick" repeat="100 100" normal-scale="1 -1" height="15" width="50" rotation="0 90 0" position="-25 -3 -20" color="brown"></a-plane>
+        <a-plane src="#brick" repeat="100 100" normal-scale="1 -1" height="15" width="50" rotation="0 -90 0" position="25 -3 -20" color="brown"></a-plane>
+
+        <a-plane src="#brick" repeat="100 100" normal-scale="1 -1" height="15" width="50" rotation="180 0 0" position="0 -3 5" color="brown"></a-plane>
+        <a-plane src="#brick" repeat="100 100" normal-scale="1 -1" height="15" width="50" rotation="0 0 0" position="0 -3 -45" color="brown"></a-plane>
+
+        <!-- entities -->
+        <!-- scene 1 -->
+        <a-entity gltf-model="#table" position="0 -1.5 -8" rotation="0 90 0" ></a-entity>
+        <a-entity gltf-model="#lightbulb_light" position="3 -1.2 -9.3" rotation="75 0 50" scale="0.2 0.2 0.2">
+            <a-entity light="type: point; intensity: 0; distance: 20; decay: 10; castShadow: true;" position="0 10 0" id="js--light1"></a-entity>
+        </a-entity>
+        <!-- scene 2 -->
+        <a-entity gltf-model="#table" position="15 -1.5 -21" rotation="0 45 0" ></a-entity>
+        <a-entity gltf-model="#lightbulb_light" position="12 -1.2 -23" rotation="75 0 0" scale="0.2 0.2 0.2">
+            <a-entity light="type: point; intensity: 0; distance: 20; decay: 10; castShadow: true;" position="0 10 0" id="js--light2"></a-entity>
+        </a-entity>
+        <!-- scene 3 -->
+        <a-entity gltf-model="#table" position="-12.4 -1.5 -19"></a-entity>
+        <a-entity gltf-model="#lightbulb_light" position="-13.5 -1.2 -22" rotation="75 0 -75" scale="0.2 0.2 0.2">
+            <a-entity light="type: point; intensity: 0; distance: 20; decay: 10; castShadow: true;" position="0 10 0" id="js--light3"></a-entity>
+        </a-entity>
+
+    </a-scene>
+</body>
