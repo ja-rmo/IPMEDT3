@@ -4,47 +4,339 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
+    <title>Het Tuintje</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="javascript/theetuin.js" defer></script>
 </head>
-<body>
-    <a-scene>
+<body onload="main()">
+    <a-scene>  
         <a-assets>
-            <a-asset-item id="tree1-gltf" src="theetuin_modellen/Tree.glb"></a-asset-item>
-
-            <a-asset-item id="tree2-gltf" src="theetuin_modellen/Tree2.glb"></a-asset-item>
-
-            <a-asset-item id="table-gltf" src="theetuin_modellen/End Table.glb"></a-asset-item>
-
-            <a-asset-item id="teapot-gltf" src="theetuin_modellen/Teapot.glb"></a-asset-item>
-
-            <a-asset-item id="teacup-gltf" src="theetuin_modellen/Cup of tea.glb"></a-asset-item>
-
-            <a-asset-item id="chair-gltf" src="theetuin_modellen/Chair.glb"></a-asset-item>
+            <a-asset-item id="teacup-gltf" src="theetuin_modellen/theekop.glb"></a-asset-item>
+            <a-asset-item id="tafeltje-gltf" src="theetuin_modellen/tafeltje.glb"></a-asset-item>
+            <a-asset-item id="stoeltje-gltf" src="theetuin_modellen/stoeltje.glb"></a-asset-item>
+            <a-asset-item id="standbeeld-gltf" src="theetuin_modellen/guy.glb"></a-asset-item> <!-- guy by CLOAKING .US [CC-BY], via Poly Pizza -->
+            <a-asset-item id="lantaarn-gltf" src="theetuin_modellen/lantaarn.glb"></a-asset-item>
+            <a-asset-item id="plant1-gltf" src="theetuin_modellen/House plant.glb"></a-asset-item> <!-- House plant by Poly by Google [CC-BY], via Poly Pizza-->
+            <a-asset-item id="plant2-gltf" src="theetuin_modellen/Umbrella palm tree.glb"></a-asset-item> <!-- Umbrella palm tree by Poly by Google [CC-BY], via Poly Pizza-->
+            <a-asset-item id="plant3-gltf" src="theetuin_modellen/Houseplant.glb"></a-asset-item> <!-- Houseplant by Quaternius [CC0], via Poly Pizza -->
+            <a-asset-item id="hangplant-gltf" src="theetuin_modellen/Twine.glb"></a-asset-item> <!-- Twine by Jakob Hippe [CC-BY], via Poly Pizza -->
+        
+           <img src="theetuin_modellen/grind.jpg" alt="" id="grind">
+           <img src="theetuin_modellen/brick.jpg" alt="" id="muur_baksteen">
+           <img src="theetuin_modellen/zandsteen.jpg" alt="" id="muur_zandsteen">
+           <img src="theetuin_modellen/fontijnmuur.jpg" alt="" id="muur_fontijn">
         </a-assets>
 
-        <a-camera id="js--camera">
-            <a-cursor></a-cursor>
+        <a-camera id="js--camera" position="0 1.5 5.5">
+            <a-entity
+                cursor="fuse:true; fuseTimeout: 500"
+                position="0 0 -1"
+                geometry="primitive:ring; radiusInner: 0.01; radiusOuter: 0.015"
+                material="color: gold"
+                raycaster="far: 20; interval: 1000;"
+                id="js-cursor"
+                shader="flat"
+            ></a-entity>
         </a-camera>
 
-        <a-entity light="type: ambient; color: lightgray" position="0 20 0"></a-entity>
+        <a-sky color="skyblue"></a-sky>
+        <!-- Vloer -->
+        <a-plane src="#grind" repeat="9 9" position="0 0 0" rotation="-90 0 0" scale="13 13"></a-plane> 
 
-        <a-plane color="#999" position="0 0 0" rotation="-90 0 0" scale="20 20 20"></a-plane> <!--vloer-->
-        <a-plane color="#bbb" position="10 0 0" rotation="0 -90 0" scale="20 20 20"></a-plane> <!--rechts-->
-        <a-plane color="#bbb" position="-10 0 0" rotation="0 90 0" scale="20 20 20"></a-plane> <!--links-->
-        <a-plane color="#bbb" position="0 0 -10" rotation="0 0 0" scale="20 20 20"></a-plane> <!--voor-->
-        <a-plane color="#bbb" position="0 0 10" rotation="180 0 0" scale="20 20 20"></a-plane> <!--achter-->
+        
+        <a-box lopen color="red" height="0.2" width="0.5" depth="0.5" position="4.5 -1 5.63"></a-box>
+        <a-box lopen color="red" height="0.2" width="0.5" depth="0.5" position="2.60 -1 5.63"></a-box>
+        <a-box lopen color="red" height="0.2" width="0.5" depth="0.5" position="-4.40 -1 0.63"></a-box>
+        <a-box lopen color="red" height="0.2" width="0.5" depth="0.5" position="0.14 -1 -2.12"></a-box>
 
-        <a-entity gltf-model="#tree1-gltf" position="-5 0 -1" scale="1 1 1"></a-entity>
-        <a-entity gltf-model="#tree1-gltf" position="-2 0 6" rotation="0 60 0" scale="0.7 0.7 0.7"></a-entity>
-        <a-entity gltf-model="#tree1-gltf" position="-4 0 -8" rotation="0 140 0" scale="0.8 0.8 0.8"></a-entity>
-        <a-entity gltf-model="#tree2-gltf" position="3 2 4" scale="2 2 2"></a-entity>
-        <a-entity gltf-model="#tree2-gltf" position="7 3 -5" scale="2.5 2.5 2.5"></a-entity>
-        <a-entity gltf-model="#table-gltf" position="-1 1 -3" rotation="0 90 0" scale="2 2 2"></a-entity>
-        <a-entity gltf-model="#teapot-gltf" position="-1 1 0"></a-entity>
-        <a-entity gltf-model="#chair-gltf" position="0 0 -2.8" rotation="0 170 0" scale="0.1 0.1 0.1" class="clickable js--place"></a-entity>
-        <a-entity gltf-model="#teacup-gltf" position="-0.8 1.1 -2.8" scale="0.1 0.1 0.1"></a-entity>
+        <!-- Petitie -->
+        <a-plane src="theetuin_modellen/petitielinks.jpg" color="#c7a575" rotation="0 180 0" position="4.5 1.3 6.49" width="1.8" height="0.9"></a-plane>
+        <a-plane src="theetuin_modellen/petitierechts.jpg" color="#c7a575" rotation="0 180 0" position="2.5 1.3 6.49" width="1.8" height="0.9"></a-plane>
+
+        <!-- Deur -->
+        <a-plane src="theetuin_modellen/door.png" color="#996141" rotation="0 180 0" position="0 1.2 6.49" width="1.5" height="2.5"></a-plane>
+
+        <!-- Buiten Muren -->
+        <a-plane src="#muur_baksteen" repeat="10 10" color="#996141" position="6.5 4 0" rotation="0 -90 0" width="13" height="8"></a-plane> <!--rechts-->
+        <a-plane src="#muur_baksteen" repeat="10 10" color="#996141" position="-6.5 4 0" rotation="0 90 0" width="13" height="8"></a-plane> <!--links-->
+        <a-plane src="#muur_baksteen" repeat="10 10" color="#996141" position="0 4 6.5" rotation="180 0 0" width="13" height="8"></a-plane> <!--achter-->
+        <a-plane src="#muur_baksteen" repeat="10 10" color="#996141" position="0 4 -6.5" rotation="0 0 0" width="13" height="8"></a-plane> <!--voor-->
+
+        <!-- Planten op Muren -->
+        <a-entity gltf-model="#hangplant-gltf" position="-6.42 4 5.3" rotation="0 270 0" scale="1 1 1"></a-entity>
+        <a-entity gltf-model="#hangplant-gltf" position="-6.42 4 4.3" rotation="0 270 0" scale="1 1 1"></a-entity>
+        <a-entity gltf-model="#hangplant-gltf" position="-6.42 4 3.3" rotation="0 270 0" scale="1 1 1"></a-entity>
+        <a-entity gltf-model="#hangplant-gltf" position="-6.42 4 2.3" rotation="0 270 0" scale="1 1 1"></a-entity>
+        <a-entity gltf-model="#hangplant-gltf" position="-6.42 3 4.7" rotation="0 270 0" scale="1 1 1"></a-entity>
+        <a-entity gltf-model="#hangplant-gltf" position="-6.42 3 3.7" rotation="0 270 0" scale="1 1 1"></a-entity>
+        <a-entity gltf-model="#hangplant-gltf" position="-6.42 3 2.7" rotation="0 270 0" scale="1 1 1"></a-entity>
+
+        <!-- Lantaarns -->
+        <a-entity gltf-model="#lantaarn-gltf" position="3.2 3.3 -6.3" rotation="0 270 0" scale="2 2 2"></a-entity>
+        <a-entity gltf-model="#lantaarn-gltf" position="-3.2 3.3 -6.3" rotation="0 270 0" scale="2 2 2"></a-entity>
+
+        <!-- Planten voor muur -->
+        <!-- Links -->
+        <a-entity gltf-model="#plant1-gltf" position="-1.3 0 -5.3" rotation="0 0 0" scale="0.2 0.2 0.2"></a-entity>
+        <a-entity gltf-model="#plant2-gltf" position="-2.2 0 -5.5" rotation="0 0 0" scale="0.2 0.2 0.2"></a-entity>
+        <a-entity gltf-model="#plant1-gltf" position="-1.8 0 -5.7" rotation="0 30 0" scale="0.1 0.1 0.1"></a-entity>
+        <a-entity gltf-model="#plant3-gltf" position="-2.9 0 -5.7" rotation="0 0 0" scale="0.7 0.7 0.7"></a-entity>
+        <a-entity gltf-model="#plant1-gltf" position="-3.6 0 -5.8" rotation="0 30 0" scale="0.25 0.25 0.25"></a-entity>
+        <a-entity gltf-model="#plant1-gltf" position="-3.4 0 -5.3" rotation="0 0 0" scale="0.15 0.15 0.15"></a-entity>
+        <a-entity gltf-model="#plant2-gltf" position="-4 0 -5" rotation="0 0 0" scale="0.15 0.15 0.15"></a-entity>
+        <a-entity gltf-model="#plant1-gltf" position="-4.6 0 -5.6" rotation="0 200 0" scale="0.3 0.3 0.3"></a-entity>
+        <a-entity gltf-model="#plant3-gltf" position="-5.2 0 -5.4" rotation="0 0 0" scale="0.5 0.5 0.5"></a-entity>
+        <a-entity gltf-model="#plant1-gltf" position="-5.2 0 -6" rotation="0 120 0" scale="0.15 0.15 0.15"></a-entity>
+
+        <!-- Rechts -->
+        <a-entity gltf-model="#plant1-gltf" position="1.5 0 -5.5" rotation="0 220 0" scale="0.2 0.2 0.2"></a-entity>
+        <a-entity gltf-model="#plant1-gltf" position="2.1 0 -6" rotation="0 120 0" scale="0.15 0.15 0.15"></a-entity>
+        <a-entity gltf-model="#plant3-gltf" position="2.4 0 -5.5" rotation="0 90 0" scale="1.2 1.2 1.2"></a-entity>
+        <a-entity gltf-model="#plant2-gltf" position="3.4 0 -5.4" rotation="0 98 0" scale="0.2 0.2 0.2"></a-entity>
+        <a-entity gltf-model="#plant1-gltf" position="3.1 0 -5.9" rotation="0 98 0" scale="0.15 0.15 0.15"></a-entity>
+        <a-entity gltf-model="#plant1-gltf" position="4.2 0 -5.8" rotation="0 220 0" scale="0.2 0.2 0.2"></a-entity>
+        <a-entity gltf-model="#plant1-gltf" position="4.9 0 -5.6" rotation="0 270 0" scale="0.3 0.3 0.3"></a-entity>
+        <a-entity gltf-model="#plant1-gltf" position="5.3 0 -6.2" rotation="0 5 0" scale="0.15 0.15 0.15"></a-entity>
+        <a-entity gltf-model="#plant1-gltf" position="6 0 -6.2" rotation="0 0 0" scale="0.15 0.15 0.15"></a-entity>
+        <a-entity gltf-model="#plant3-gltf" position="5.6 0 -5.7" rotation="0 0 0" scale="0.5 0.5 0.5"></a-entity>
+        <a-entity gltf-model="#plant2-gltf" position="5.6 0 -5" rotation="0 27 0" scale="0.2 0.2 0.2"></a-entity>
+
+        <!-- uitsteeksel muur voor / Van onder tot boven-->
+        <a-plane src="#muur_baksteen" repeat="10 0.8" color="#996141" position="0 0.40 -6.3" rotation="0 0 0" width="10" height="0.8"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.5 1" color="#996141" position="-5 0.40 -6.4" rotation="0 -90 0" width="0.2" height="0.8"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.5 1" color="#996141" position="5 0.40 -6.4" rotation="0 90 0" width="0.2" height="0.8"></a-plane> 
+
+        <a-plane src="#muur_zandsteen" repeat="8 1 " position="0 1.1 -6.3" rotation="0 0 0" width="10" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.5 1" position="-5 1.1 -6.4" rotation="0 -90 0" width="0.2" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.5 1" position="5 1.1 -6.4" rotation="0 90 0" width="0.2" height="0.6"></a-plane> 
+
+        <a-plane src="#muur_baksteen" repeat="10 0.6" color="#996141" position="0 1.65 -6.3" rotation="0 0 0" width="10" height="0.5"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.1 0.6" color="#996141" position="-5 1.65 -6.4" rotation="0 -90 0" width="0.2" height="0.5"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.3 1" color="#996141" position="5 1.65 -6.4" rotation="0 90 0" width="0.2" height="0.5"></a-plane> 
+
+        <a-plane src="#muur_zandsteen" repeat="8 1 " position="0 2.2 -6.3" rotation="0 0 0" width="10" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.5 1" position="-5 2.2 -6.4" rotation="0 -90 0" width="0.2" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.5 1" position="5 2.2 -6.4" rotation="0 90 0" width="0.2" height="0.6"></a-plane> 
+
+        <a-plane src="#muur_baksteen" repeat="10 0.6" color="#996141" position="0 2.75 -6.3" rotation="0 0 0" width="10" height="0.5"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.1 0.6" color="#996141" position="-5 2.75 -6.4" rotation="0 -90 0" width="0.2" height="0.5"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.3 1" color="#996141" position="5 2.75 -6.4" rotation="0 90 0" width="0.2" height="0.5"></a-plane> 
+
+        <a-plane src="#muur_zandsteen" repeat="8 1 " position="0 3.3 -6.3" rotation="0 0 0" width="10" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.5 1" position="-5 3.3 -6.4" rotation="0 -90 0" width="0.2" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.5 1" position="5 3.3 -6.4" rotation="0 90 0" width="0.2" height="0.6"></a-plane> 
+
+        <a-plane src="#muur_baksteen" repeat="10 0.6" color="#996141" position="0 3.85 -6.3" rotation="0 0 0" width="10" height="0.5"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.1 0.6" color="#996141" position="-5 3.85 -6.4" rotation="0 -90 0" width="0.2" height="0.5"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.3 1" color="#996141" position="5 3.85 -6.4" rotation="0 90 0" width="0.2" height="0.5"></a-plane> 
+
+        <a-plane src="#muur_zandsteen" repeat="8 1 " position="0 4.4 -6.3" rotation="0 0 0" width="10" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.5 1" position="-5 4.4 -6.4" rotation="0 -90 0" width="0.2" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.5 1" position="5 4.4 -6.4" rotation="0 90 0" width="0.2" height="0.6"></a-plane> 
+
+        <a-plane src="#muur_baksteen" repeat="10 0.6" color="#996141" position="0 4.95 -6.3" rotation="0 0 0" width="10" height="0.5"></a-plane>
+        <a-plane src="#muur_baksteen" repeat="0.1 0.6" color="#996141" position="-5 4.95 -6.4" rotation="0 -90 0" width="0.2" height="0.5"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.3 1" color="#996141" position="5 4.95 -6.4" rotation="0 90 0" width="0.2" height="0.5"></a-plane> 
+
+        <a-plane src="#muur_zandsteen" repeat="8 1 " position="0 5.5 -6.3" rotation="0 0 0" width="10" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.5 1" position="-5 5.5 -6.4" rotation="0 -90 0" width="0.2" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.5 1" position="5 5.5 -6.4" rotation="0 90 0" width="0.2" height="0.6"></a-plane> 
+
+        <!-- uitsteeksel van beeld -->
+        <!-- cylinder waar beeld opstaat -->
+        <a-cylinder src="#muur_fontijn" position="0 0.1 -6.3" height="0.28" geometry="thetaStart: 270; thetaLength: 180"></a-cylinder>
+        <a-cylinder src="#muur_fontijn" position="0 0.4 -6.3" height="0.35" geometry="radius: 0.9; thetaStart: 270; thetaLength: 180"></a-cylinder>
+        <a-cylinder src="#muur_fontijn" position="0 0.7 -6.3" height="0.2" geometry="radius: 1.2; thetaStart: 270; thetaLength: 180"></a-cylinder>
+
+        <!-- Standbeeld -->
+        <a-entity gltf-model="#standbeeld-gltf" position="0 0.8 -5.8" rotation="0 0 0" scale="0.11 0.11 0.11"></a-entity>
+        
+        <!-- Muren om beeld / cylinder -->
+        <!-- Van onder naar boven -->
+        <a-plane src="#muur_baksteen" repeat="0.4 0.8" color="#996141" position="-1.5 0.40 -6.1" rotation="0 -90 0" width="0.4" height="0.8"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.4 0.8" color="#996141" position="-1.15 0.40 -5.9" rotation="0 0 0" width="0.7" height="0.8"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.4 0.8" color="#996141" position="1.5 0.40 -6.1" rotation="0 90 0" width="0.4" height="0.8"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.4 0.8" color="#996141" position="1.15 0.40 -5.9" rotation="0 0 0" width="0.7" height="0.8"></a-plane> 
+
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.8" position="-1.5 1.1 -6.1" rotation="0 -90 0" width="0.4" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.8" position="-1.15 1.1 -5.9" rotation="0 0 0" width="0.7" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.8" position="1.5 1.1 -6.1" rotation="0 90 0" width="0.4" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.8" position="1.15 1.1 -5.9" rotation="0 0 0" width="0.7" height="0.6"></a-plane> 
+       
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.8" position="-0.60 1.1 -6.1" rotation="0 45 0" width="0.57" height="0.6"></a-plane> <!-- Schuine stukken -->
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.8" position="0.60 1.1 -6.1" rotation="0 315 0" width="0.57" height="0.6"></a-plane> <!-- Schuine stukken -->
+        
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="-1.5 1.65 -6.1" rotation="0 -90 0" width="0.4" height="0.5"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="-1.15 1.65 -5.9" rotation="0 0 0" width="0.7" height="0.5"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="1.5 1.65 -6.1" rotation="0 90 0" width="0.4" height="0.5"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="1.15 1.65 -5.9" rotation="0 0 0" width="0.7" height="0.5"></a-plane> 
+       
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="-0.60 1.65 -6.1" rotation="0 45 0" width="0.57" height="0.5"></a-plane> <!-- Schuine stukken -->
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="0.60 1.65 -6.1" rotation="0 315 0" width="0.57" height="0.5"></a-plane> <!-- Schuine stukken -->
+
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.8" position="-1.5 2.2 -6.1" rotation="0 -90 0" width="0.4" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.8" position="-1.15 2.2 -5.9" rotation="0 0 0" width="0.7" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.8" position="1.5 2.2 -6.1" rotation="0 90 0" width="0.4" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.8" position="1.15 2.2 -5.9" rotation="0 0 0" width="0.7" height="0.6"></a-plane> 
+       
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.8" position="-0.60 2.2 -6.1" rotation="0 45 0" width="0.57" height="0.6"></a-plane> <!-- Schuine stukken -->
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.8" position="0.60 2.2 -6.1" rotation="0 315 0" width="0.57" height="0.6"></a-plane> <!-- Schuine stukken -->
+
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="-1.5 2.75 -6.1" rotation="0 -90 0" width="0.4" height="0.5"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="-1.15 2.75 -5.9" rotation="0 0 0" width="0.7" height="0.5"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="1.5 2.75 -6.1" rotation="0 90 0" width="0.4" height="0.5"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="1.15 2.75 -5.9" rotation="0 0 0" width="0.7" height="0.5"></a-plane> 
+       
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="-0.60 2.75 -6.1" rotation="0 45 0" width="0.57" height="0.5"></a-plane>  <!-- Schuine stukken -->
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="0.60 2.75 -6.1" rotation="0 315 0" width="0.57" height="0.5"></a-plane> <!-- Schuine stukken -->
+
+        <!-- Dakje van standbeeld -->
+        <a-triangle src="#muur_zandsteen" position="-0.55 3.2 -6.05" rotation="20 44 0" scale="0.69 0.69 0.69" ></a-triangle>
+        <a-triangle src="#muur_zandsteen" position="0.55 3.2 -6.05" rotation="20 315 0" scale="0.69 0.69 0.69" ></a-triangle>
+        <a-plane src="#muur_zandsteen" position="0 3.1 -6.17" rotation="26 0 0" width="1" height="0.92"></a-plane> 
+        
+        <a-triangle src="#muur_zandsteen" position="-0.72 3.25 -5.92" rotation="0 18 165" scale="0.40 0.67 0.68" ></a-triangle>
+        <a-triangle src="#muur_zandsteen" position="0.72 3.25 -5.92" rotation="0 -18 -165" scale="0.40 0.67 0.68" ></a-triangle>
+
+        <!-- Muren naast/boven dakje -->
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.8" position="-1.15 3.3 -5.9" rotation="0 0 0" width="0.7" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.8" position="1.15 3.3 -5.9" rotation="0 0 0" width="0.7" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.8" position="1.5 3.3 -6.1" rotation="0 90 0" width="0.4" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.8" position="-1.5 3.3 -6.1" rotation="0 -90 0" width="0.4" height="0.6"></a-plane> 
+
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="1.5 3.85 -6.1" rotation="0 90 0" width="0.4" height="0.5"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="-1.5 3.85 -6.1" rotation="0 -90 0" width="0.4" height="0.5"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="2 0.7" color="#996141" position="0 3.85 -5.9" rotation="0 0 0" width="3" height="0.5"></a-plane> 
+
+        <a-plane src="#muur_zandsteen" repeat="0.7 0.7" position="0 3.60 -5.97" rotation="30 0 0" width="1.61" height="0.2"></a-plane>     
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.6" position="1.5 4.4 -6.1" rotation="0 90 0" width="0.4" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.6" position="-1.5 4.4 -6.1" rotation="0 -90 0" width="0.4" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" position="0 4.4 -5.9" rotation="0 0 0" width="3" height="0.6"></a-plane> 
+
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="1.5 4.95 -6.1" rotation="0 90 0" width="0.4" height="0.5"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="-1.5 4.95 -6.1" rotation="0 -90 0" width="0.4" height="0.5"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="2 0.7" color="#996141" position="0 4.95 -5.9" rotation="0 0 0" width="3" height="0.5"></a-plane> 
+
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.6" position="1.5 5.5 -6.1" rotation="0 90 0" width="0.4" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.6" position="-1.5 5.5 -6.1" rotation="0 -90 0" width="0.4" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" position="0 5.5 -5.9" rotation="0 0 0" width="3" height="0.6"></a-plane> 
+
+        <!-- Uitsteeksels bovenste laag Muren -->
+        <!-- Midden -->
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.6" position="1.5 6.1 -6.1" rotation="0 90 0" width="0.6" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.6" position="-1.5 6.1 -6.1" rotation="0 -90 0" width="0.6" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" position="0 6.1 -5.8" rotation="0 0 0" width="3" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" position="0 5.8 -5.85" rotation="90 0 0" width="3" height="0.1"></a-plane> 
+        
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.6" position="1.5 6.7 -6.1" rotation="0 90 0" width="0.6" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.6" position="-1.5 6.7 -6.1" rotation="0 -90 0" width="0.6" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" position="0 6.7 -5.8" rotation="0 0 0" width="3" height="0.6"></a-plane> 
+        
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.6" position="1.5 7.3 -6.1" rotation="0 90 0" width="0.6" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.6" position="-1.5 7.3 -6.1" rotation="0 -90 0" width="0.6" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" position="0 7.3 -5.8" rotation="0 0 0" width="3" height="0.6"></a-plane> 
+
+        <!-- Links -->
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.6" position="-5 6.1 -6.3" rotation="0 -90 0" width="0.4" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" position="-3.25 6.1 -6.1" rotation="0 0 0" width="3.5" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" position="-3.25 5.8 -6.2" rotation="90 0 0" width="3.5" height="0.2"></a-plane> 
+
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.6" position="-5 6.7 -6.3" rotation="0 -90 0" width="0.4" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" position="-3.25 6.7 -6.1" rotation="0 0 0" width="3.5" height="0.6"></a-plane> 
+
+        <a-plane src="#muur_zandsteen" repeat="0.4 0.6" position="-5 7.3 -6.3" rotation="0 -90 0" width="0.4" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" position="-3.25 7.3 -6.1" rotation="0 0 0" width="3.5" height="0.6"></a-plane> 
+
+        <a-plane src="#muur_zandsteen" repeat="3 0.8" position="-5.75 6.1 -6.4" rotation="0 0 0" width="1.5" height="0.8"></a-plane> 
+        <a-plane src="#muur_zandsteen" position="-5.75 5.7 -6.45" rotation="90 0 0" width="1.5" height="0.1"></a-plane> 
+
+        <a-plane src="#muur_zandsteen" position="-5.75 6.7 -6.4" rotation="0 0 0" width="1.5" height="0.8"></a-plane> 
+
+        <a-plane src="#muur_zandsteen" position="-5.75 7.3 -6.4" rotation="0 0 0" width="1.5" height="0.8"></a-plane> 
+
+        <!-- Rechts -->
+        <a-plane src="#muur_zandsteen" position="5 6.1 -6.3" rotation="0 90 0" width="0.4" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" position="3.25 6.1 -6.1" rotation="0 0 0" width="3.5" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" position="3.25 5.8 -6.2" rotation="90 0 0" width="3.5" height="0.2"></a-plane> 
+
+        <a-plane src="#muur_zandsteen" position="5 6.7 -6.3" rotation="0 90 0" width="0.4" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" position="3.25 6.7 -6.1" rotation="0 0 0" width="3.5" height="0.6"></a-plane> 
+
+        <a-plane src="#muur_zandsteen" position="5 7.3 -6.3" rotation="0 90 0" width="0.4" height="0.6"></a-plane> 
+        <a-plane src="#muur_zandsteen" position="3.25 7.3 -6.1" rotation="0 0 0" width="3.5" height="0.6"></a-plane> 
+
+        <a-plane src="#muur_zandsteen" position="5.75 6.1 -6.4" rotation="0 0 0" width="1.5" height="0.8"></a-plane> 
+        <a-plane src="#muur_zandsteen" position="5.75 5.7 -6.45" rotation="90 0 0" width="1.5" height="0.1"></a-plane> 
+
+        <a-plane src="#muur_zandsteen" position="5.75 6.7 -6.4" rotation="0 0 0" width="1.5" height="0.8"></a-plane> 
+
+        <a-plane src="#muur_zandsteen" position="5.75 7.3 -6.4" rotation="0 0 0" width="1.5" height="0.8"></a-plane> 
+
+        <!-- Torentjes muur Midden -->
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="1.5 8.2 -6.2" rotation="0 90 0" width="0.6" height="1.2"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="-1.5 8.2 -6.2" rotation="0 -90 0" width="0.6" height="1.2"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="2 1.5" position="0 8.2 -5.9" color="#996141" rotation="0 0 0" width="3" height="1.2"></a-plane> 
+
+        <a-plane src="#muur_baksteen" repeat="2 1.5" position="0 9.05 -5.9" color="#996141" rotation="0 0 0" width="1" height="0.5"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="0.5 9.05 -6.2" rotation="0 90 0" width="0.6" height="0.5"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="-0.5 9.05 -6.2" rotation="0 -90 0" width="0.6" height="0.5"></a-plane> 
+
+        <a-plane src="#muur_baksteen" repeat="2 1.5" position="2.7 8.2 -6.4" color="#996141" rotation="0 0 0" width="2.6" height="0.8"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="2 1.5" position="4.5 8.2 -6.4" color="#996141" rotation="0 0 0" width="1" height="1.2"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="5 8.2 -6.45" rotation="0 90 0" width="0.1" height="1.2"></a-plane> 
+        
+        <a-plane src="#muur_baksteen" repeat="2 1.5" position="-2.7 8.2 -6.4" color="#996141" rotation="0 0 0" width="2.6" height="0.8"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="2 1.5" position="-4.5 8.2 -6.4" color="#996141" rotation="0 0 0" width="1" height="1.2"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="-5 8.2 -6.45" rotation="0 -90 0" width="0.1" height="1.2"></a-plane> 
+
+        <!-- Muur van uitstekend gebouw links -->
+        <a-plane src="#muur_baksteen" repeat="5 10" color="#996141" position="-5.5 2.5 -4" rotation="0 90 0" width="5" height="5"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.6 6" color="#996141" position="-6 2.5 -1.5" rotation="0 0 0" width="1" height="5"></a-plane> 
+        <a-triangle src="#muur_baksteen" repeat="2.5 2.5" color="#996141" position="-5.5 6.25 -4" rotation="0 90 0" scale="2.5 2.5 2.5" ></a-triangle>
+        <a-triangle src="#muur_baksteen" repeat="2.5 2.5" color="#996141" position="-5.75 6.25 -4" rotation="0 270 0" scale="2.5 2.5 2.5" ></a-triangle>
+        <a-plane src="#muur_baksteen" repeat="0.6 6" color="#996141" position="-5.64 6.2 -3.34" rotation="-27 0 0" width="0.3" height="2.79"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="-5.5 7.3 -4" rotation="0 90 0" width="0.3" height="0.8"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="-5.65 7.3 -3.85" rotation="0 0 0" width="0.3" height="0.8"></a-plane> 
+        <a-plane src="#muur_baksteen" repeat="0.4 0.6" color="#996141" position="-5.65 7.3 -4.15" rotation="0 180 0" width="0.3" height="0.8"></a-plane> 
+
+        <!-- Deur gebouw links -->
+        <a-plane src="theetuin_modellen/door.png" color="#996141" rotation="0 90 0" position="-5.49 1.2 -4" width="1.5" height="2.5"></a-plane>
+    
+        <!-- Tafeltje links voor uitsteeksel gebouw -->
+        <a-entity gltf-model="#tafeltje-gltf" position="-5.3 0.3 -0.5" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
+        <a-entity gltf-model="#teacup-gltf" position="-5.1 0.89 -0.5" rotation="0 300 0" scale="2 2 2"></a-entity>
+        <a-entity gltf-model="#stoeltje-gltf" position="-5.6 0.2 0.5" rotation="0 159 0" scale="0.75 0.75 0.75"></a-entity>
+        <!-- Foto Tuintje -->
+        <a-plane src="theetuin_modellen/het_tuintje.jpg" color="#c7a575" position="-5.4 0.9 -0.3" rotation="270 0 -20" height="0.5" width="0.4"></a-plane> 
+
+        <!-- Tafeltje links achterin -->
+        <a-entity gltf-model="#tafeltje-gltf" position="-4.5 0.3 4.5" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
+        <a-entity gltf-model="#stoeltje-gltf" position="-5.5 0.2 4.5" rotation="0 90 0" scale="0.75 0.75 0.75"></a-entity>
+        <a-entity gltf-model="#stoeltje-gltf" position="-4.5 0.2 5.5" rotation="0 180 0" scale="0.75 0.75 0.75"></a-entity>
+        <a-entity gltf-model="#stoeltje-gltf" position="-4.5 0.2 3.5" rotation="0 0 0" scale="0.75 0.75 0.75"></a-entity>
+        <a-entity gltf-model="#teacup-gltf" position="-4.9 0.89 4.5" rotation="0 75 0" scale="2 2 2"></a-entity>
+        <a-entity gltf-model="#teacup-gltf" position="-4.4 0.89 4.9" rotation="0 0 0" scale="2 2 2"></a-entity>
+
+        <!-- Tafeltje rechts achterin -->
+        <a-entity gltf-model="#tafeltje-gltf" position="4.5 0.3 3" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
+        <a-entity gltf-model="#stoeltje-gltf" position="4.5 0.2 4" rotation="0 180 0" scale="0.75 0.75 0.75"></a-entity>
+        <a-entity gltf-model="#stoeltje-gltf" position="4.5 0.2 2" rotation="0 0 0" scale="0.75 0.75 0.75"></a-entity>
+
+        <!-- tafeltje rechts voorin -->
+        <a-entity gltf-model="#tafeltje-gltf" position="4.5 0.3 -1" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
+        <a-entity gltf-model="#stoeltje-gltf" position="4.5 0.2 -2" rotation="0 0 0" scale="0.75 0.75 0.75"></a-entity>
+        <a-entity gltf-model="#stoeltje-gltf" position="5.5 0.2 -1" rotation="0 270 0" scale="0.75 0.75 0.75"></a-entity>
+        <a-entity gltf-model="#stoeltje-gltf" position="3.5 0.2 -1" rotation="0 90 0" scale="0.75 0.75 0.75"></a-entity>
+        <a-entity gltf-model="#stoeltje-gltf" position="4.5 0.2 0" rotation="0 180 0" scale="0.75 0.75 0.75"></a-entity>
+        <a-entity gltf-model="#teacup-gltf" position="4.5 0.89 -0.6" rotation="0 0 0" scale="2 2 2"></a-entity>
+        <a-entity gltf-model="#teacup-gltf" position="4.5 0.89 -1.2" rotation="0 0 0" scale="2 2 2"></a-entity>
+
+        <!-- Tafeltje Midden -->
+        <a-entity gltf-model="#tafeltje-gltf" position="0 0.3 1.5" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
+        <a-entity gltf-model="#stoeltje-gltf" position="0 0.2 0.5" rotation="0 0 0" scale="0.75 0.75 0.75"></a-entity>
+        <a-entity gltf-model="#stoeltje-gltf" position="0 0.2 2.5" rotation="0 180 0" scale="0.75 0.75 0.75"></a-entity>
+        <a-entity gltf-model="#stoeltje-gltf" position="1 0.2 1.5" rotation="0 270 0" scale="0.75 0.75 0.75"></a-entity>
+        <a-entity gltf-model="#stoeltje-gltf" position="-1 0.2 1.5" rotation="0 90 0" scale="0.75 0.75 0.75"></a-entity>
     </a-scene>
 </body>
 </html>
