@@ -12,6 +12,16 @@ AFRAME.registerComponent("painting", {
     }
 });
 
+AFRAME.registerComponent("door", {
+    init:  function() {
+    
+        this.back_to_main = () => {
+            window.location.href = "index.html";
+        }
+        this.el.addEventListener("mouseenter", this.back_to_main)
+    }
+});
+
 AFRAME.registerComponent("walk", {
     init:  function() {
         this.walk_function = () => {

@@ -7,13 +7,16 @@ let positions = {
 
 audio = {
     1: () => {
-        document.getElementById("js--frame").setAttribute("sound", "src: #sound1; autoplay: true")
+        let audio = new Audio('sounds/bodega1.mp3');
+        audio.play();
     },
     2: () => {
-        document.getElementById("js--bar_bulb").setAttribute("sound", "src: #sound2; autoplay: true")
+        let audio = new Audio('sounds/bodega2.mp3');
+        audio.play();
     },
     3: () => {
-        document.getElementById("js--last_bulb").setAttribute("sound", "src: #sound3; autoplay: true")
+        let audio = new Audio('sounds/bodega3.mp3');
+        audio.play();
     }
 }
 
@@ -65,9 +68,7 @@ end_game = () => {
     for(let i = 0; i<tiles.length; i++){
         tiles[i].setAttribute("position", `0 -3.5 ${tiles[i].getAttribute("position").z}`)
     }
-
-    const light = document.getElementById("js--ambient")
-    light.setAttribute("light", "type: ambient; color: white")
+    ambientLight(true)
 }
 
 teleportCamera = (new_camera_position, duration) =>{
@@ -85,6 +86,14 @@ setupLight = (el_light, set_on) => {
     else{
         el_light.setAttribute("light", "type: point; intensity: 0; distance: 30")
     }
+}
+
+ambientLight = (ligth_on) => {
+    const light = document.getElementById("js--ambient")
+    if (ligth_on) {
+        light.setAttribute("light", "type: ambient; color: #d9d9d9")
+    }
+    else{light.setAttribute("light", "type: ambient; color: #333333")}
 }
 
 // setInterval(() =>{

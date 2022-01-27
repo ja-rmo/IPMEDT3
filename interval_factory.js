@@ -11,6 +11,7 @@ class Interval {
                 end_start()
                 setupLight(el_light, set_on)
             }else{
+                ambientLight(false)
                 scene1()
             }
             this.stop_interval()
