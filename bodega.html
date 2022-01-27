@@ -35,20 +35,16 @@
             <img src="/bodegaAssets/wall2.jpg" id="wall2">
             <img src="/bodegaAssets/wall3.png" id="wall3">
             <img src="/bodegaAssets/door.png" id="door">
-
-            <audio id="sound1" src="sounds/bodega1.mp3" preload="auto"></audio>
-            <audio id="sound2" src="sounds/bodega2.mp3" preload="auto"></audio>
-            <audio id="sound3" src="sounds/bodega3.mp3" preload="auto"></audio>
         </a-assets>        
 
         <a-entity id="js--rig" position="7.21 -1.5 -26.24" rotation="0 90 0">
-            <a-camera id="js--camera" wasd-controls="enabled: false;" >
+            <a-camera id="js--camera" wasd-controls="enabled: false;">
                 <a-entity
-                    cursor="fuse: true; fuseTimeout: 500"
+                    cursor="fuse: true; fuseTimeout: 1000"
                     position="0 0 -1"
                     geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
                     material="color: gold"
-                    raycaster="far: 20; interval: 1000;"
+                    raycaster="far: 20; interval: 2000;"
                     id="js--cursor"
                     shader="flat"
                 ></a-entity>
@@ -99,7 +95,7 @@
         <a-plane src="#ceiling" height="35" width="20" rotation="90 0 0" position="0 5.45001 -12.5"></a-plane>
         <a-plane color="#180700" height="3.5" width="13" rotation="90 0 0" position="0 2.95 -31.75"></a-plane>
                                                 <!-- door -->
-        <a-plane src="#door" color="#843215" height="6" width="3" rotation="0 -90 0" position="9.99 -0.5 -25"></a-plane>
+        <a-plane door src="#door" color="#843215" height="6" width="3" rotation="0 -90 0" position="9.99 -0.5 -25"></a-plane>
 
         <!-- piet de intrieur man -->
                                      <!-- table / shield wall pairs -->
@@ -191,6 +187,6 @@
 
 
         <!-- Herman elektricien man -->
-        <a-entity light="type: ambient; color: #262626" id="js--ambient"></a-entity>
+        <a-entity light="type: ambient; color: #d9d9d9" id="js--ambient"></a-entity>
     </a-scene>
 </body>
