@@ -125,12 +125,7 @@
 
                                             <!-- light bulbs -->
         <a-entity gltf-model="#lightbulb" position="9.85 1 1" rotation="90 0 90" scale="0.1 0.1 0.1"></a-entity>
-        <a-entity gltf-model="#lightbulb" position="9.85 1 -7" rotation="90 0 90" scale="0.1 0.1 0.1">
-            <a-entity light="type: point; color: white; intensity: 0; distance: 10;"
-                position="0 20 0"
-                id="js--light1"
-            ></a-entity>
-        </a-entity>
+        <a-entity gltf-model="#lightbulb" position="9.85 1 -7" rotation="90 0 90" scale="0.1 0.1 0.1"></a-entity>
         <a-entity gltf-model="#lightbulb" position="9.85 1 -15" rotation="90 0 90" scale="0.1 0.1 0.1"></a-entity>
         <a-entity gltf-model="#lightbulb" position="0 2.5 -31" rotation="180 0 0" scale="0.1 0.1 0.1" id="js--last_bulb">
             <a-entity light="type: point; color: white; intensity: 0; distance: 10;"
@@ -173,8 +168,11 @@
         <a-entity gltf-model="#bottle" position="-11.25 -0.6 -17" rotation="0 -90 0" scale="0.3 0.3 0.3"></a-entity>
         <a-entity gltf-model="#bottle" position="-11.25 -0.6 -19" rotation="0 40 0" scale="0.3 0.3 0.3"></a-entity>
                                              <!-- frames -->
-        <a-entity gltf-model="#frame" position="9.8 0 -9.5" rotation="0 90 0" scale="1.5 1.5 1.5" id="js--frame">
-            <!-- <a-sound src="#sound1" id="js--sound1" preload="auto"></a-sound> -->
+        <a-entity image_animation gltf-model="#frame" position="6.8 -1.3 -9.5" rotation="90 90 0" scale="1.8 1.8 1.8" id="js--frame">
+            <a-entity light="type: point; color: white; intensity: 0; distance: 10;"
+                position="0 0 -1"
+                id="js--light1"
+            ></a-entity>
         </a-entity>
         <a-entity gltf-model="#frame2" position="-9.9 0 -4.2" rotation="0 90 0" scale="1.5 1.5 1.5">
             <a-plane painting position="0 0 0" rotation="0 0 0" color="white" id="js--painting" height="1.5" width="2"></a-plane>

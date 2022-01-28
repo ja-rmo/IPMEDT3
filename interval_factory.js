@@ -42,6 +42,13 @@ class Interval {
         }, dur)
     }
 
+    animation_interval = (el, duration) => {
+        this.name = setInterval(() => {
+            el.start()
+            this.stop_interval()
+        }, duration)
+    }
+
     walk_interval = (pos, dur1, dur2) => {
         this.name = setInterval(() => {
             teleportCamera(pos, dur1)
