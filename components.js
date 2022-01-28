@@ -66,3 +66,26 @@ AFRAME.registerComponent("crown_animation", {
         this.go_up_animation()
     }
 });
+
+
+AFRAME.registerComponent("image_animation", {
+    init:  function() {
+        this.rotate_animation = () => {
+            animation_value1 = "property: position; easing: linear; dur: 4000; to: 6.8 0.4 -9.5"
+            animation_value2 = "property: rotation; easing: linear; dur: 3000; to: 0 90 0"
+            this.el.setAttribute("animation", animation_value1)
+            anm_interval = setInterval(() =>{
+                this.el.removeAttribute("animation")
+                this.el.setAttribute("animation", animation_value2)
+                clearInterval(anm_interval)
+            }, 4001)
+        }
+    },
+
+    start: function() {
+        this.rotate_animation()
+    }
+});
+
+// 6.8 0 -9.5
+//  0 90 0

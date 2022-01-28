@@ -34,7 +34,9 @@ end_start = () => {
 scene1 = () => {
     const audio1 = new Interval("audio1")
     const wait1 = new Interval("wait1")
+    const animation1 = new Interval("animation1")
     audio1.play_audio_interval(1, 4000)
+    animation1.animation_interval(document.querySelector("[image_animation]").components.image_animation, 5000)
     wait1.wait_interval(43000, scene2, document.getElementById("js--light1"), document.getElementById("js--light2"))
 }
 
@@ -51,15 +53,10 @@ scene3 = () => {
     const walk3 = new Interval("walk3")
     const audio3 = new Interval("audio3")
     const wait3 = new Interval("wait3")
+    const animation3 = new Interval("animation3")
     walk3.walk_interval(positions[3], 5000, 2000)
     audio3.play_audio_interval(3, 8500)
-
-    anm_crown = setInterval(() => {
-        const el = document.querySelector("[crown_animation]").components.crown_animation
-        el.start()
-        clearInterval(anm_crown)
-    }, 10000)
-
+    animation3.animation_interval(document.querySelector("[crown_animation]").components.crown_animation, 10000)
     wait3.wait_interval(33000, end_game)
 }
 
@@ -68,6 +65,7 @@ end_game = () => {
     for(let i = 0; i<tiles.length; i++){
         tiles[i].setAttribute("position", `0 -3.5 ${tiles[i].getAttribute("position").z}`)
     }
+    document.getElementById("js--light3").setAttribute("light", "type: point; intensity: 1; distance: 20;")
     ambientLight(true)
 }
 
@@ -80,18 +78,18 @@ teleportCamera = (new_camera_position, duration) =>{
 
 setupLight = (el_light, set_on) => {
     if(set_on){
-        el_light.setAttribute("light", "type: point; intensity: 2; distance: 35; decay: 5")
+        el_light.setAttribute("light", "type: point; intensity: 2; distance: 30;")
     }
     
     else{
-        el_light.setAttribute("light", "type: point; intensity: 0; distance: 30")
+        el_light.setAttribute("light", "type: point; intensity: 0;")
     }
 }
 
 ambientLight = (ligth_on) => {
     const light = document.getElementById("js--ambient")
     if (ligth_on) {
-        light.setAttribute("light", "type: ambient; color: #d9d9d9")
+        light.setAttribute("light", "type: ambient; color: white")
     }
     else{light.setAttribute("light", "type: ambient; color: #333333")}
 }
