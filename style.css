@@ -121,9 +121,6 @@ a {
     text-align: left;
 }
 
-.theetuin__wrapper__uitleg:nth-of-type(2) {
-    text-align: right;
-}
 
 .bodega__wrapper {
     position: absolute;
@@ -162,9 +159,6 @@ a {
     text-align: left;
 }
 
-.bodega__wrapper__uitleg:nth-of-type(2) {
-    text-align: right;
-}
 
 .terugknop {
     font-size: 1.5rem;
